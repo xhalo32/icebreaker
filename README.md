@@ -49,30 +49,14 @@ the form of student keys (eight character hex strings).
 Ice Breaker is trivial to deploy:
 
 ```shell
-go install github.com/jonhoo/icebreaker
-env PORT=8080 $GOPATH/bin/icebreaker
+gcloud app deploy
 ```
 
 The repository also contains all the configuration files required to
-deploy directly to [Heroku](https://heroku.com). Simply follow the steps
-for [creating a (free) Heroku
-dyno](https://devcenter.heroku.com/articles/git#creating-a-heroku-remote),
-and then [push to
-deploy](https://devcenter.heroku.com/articles/git#deploying-code). If
-you already have the [Heroku
-CLI](https://devcenter.heroku.com/articles/heroku-command) installed,
-you can quickly spin up an instance using:
+deploy directly to Google Cloud app engine.
 
-```shell
-git clone https://github.com/jonhoo/icebreaker.git
-cd icebreaker
-heroku create
-git push heroku master
-heroku open # opens the deployed install in your browser
-```
-
-Beware that Heroku will put your server [to
-sleep](https://devcenter.heroku.com/articles/dyno-sleeping#sleeping)
+Beware that Google Cloud app engine will put your server to
+sleep
 after a certain amount of time if you are on the free tier service. This
 process effectively terminates the application and restarts it the next
 time one of its URLs are accessed, so once this happens, all room state
